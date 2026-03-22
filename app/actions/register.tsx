@@ -15,7 +15,13 @@ export default async function handleSubmit(formData: FormData){
 
         //Implementing Use Case
         const usecase = await createRegisterUserUseCase();
-        await usecase.execute({ email, password, notification})
+        await usecase.execute({
+          email,
+          password,
+          notification,
+          theme: "dark",
+          language: "english",
+        })
 
         const cookieStore = await cookies();
         cookieStore.set("verify_email", email, {

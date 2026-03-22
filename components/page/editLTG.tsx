@@ -125,7 +125,7 @@ function GoalTableSection({
 								</tr>
 							) : (
 								goals.map((goal, index) => {
-									const goalId = goal._id ?? goal.id;
+									const goalId = goal._id ?? goal.id ?? ""
 									const status = goalStatuses[goalId] ?? goal.completed
 
 									return (

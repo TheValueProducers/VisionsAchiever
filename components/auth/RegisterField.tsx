@@ -40,7 +40,11 @@ const isValidLength = (password: string) => {
   return password.length > 6;
 }
 
-export default function RegisterField({action}) {
+type RegisterFieldProps = {
+  action: (formData: FormData) => void | Promise<void>
+}
+
+export default function RegisterField({ action }: RegisterFieldProps) {
  
 
  
@@ -51,7 +55,7 @@ export default function RegisterField({action}) {
     const { isDark } = useThemeContext();
     const { t } = useLanguageContext();
 
-    const checkValidPassword = (password) => {
+    const checkValidPassword = (password: string) => {
     if (isValidLength(password)) setValidLength(true);
     else {
       setValidLength(false);
