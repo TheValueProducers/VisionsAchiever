@@ -30,7 +30,7 @@ export class RegisterUser {
       language: "english",
     });
 
-    const verifyLink = `http://localhost:3000/register/verify?token=${token}`;
+    const verifyLink = `https://www.visionachiever.org/register/verify?token=${token}`;
 
     await this.emailSender.sendVerification(verifyLink, data.email);
 

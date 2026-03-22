@@ -28,7 +28,7 @@ export class SendConfirmation {
 
 		await this.users.save(user);
 
-		const verifyLink = `http://localhost:3000/register/verify?token=${token}`;
+		const verifyLink = `https://www.visionachiever.org/register/verify?token=${token}`;
 		await this.emailSender.sendVerification(verifyLink, email);
 
 		return { success: true };

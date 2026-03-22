@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function sendEmail(link: string, email: string) {
   const { data, error } = await resend.emails.send({
-    from: "onboarding@resend.dev",
+    from: "VisionAchiever <noreply@visionachiever.org>",
     to: [email],
     subject: "Verify User",
     react: EmailTemplate({ link }),
