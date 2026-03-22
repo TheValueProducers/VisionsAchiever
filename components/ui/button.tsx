@@ -74,7 +74,7 @@ function ButtonWithIcon({
   
   return (
     <Button onClick={onClick} variant="outline" size="sm" className={`w-3xs! p-1! cursor-pointer ${isDark ? 'bg-black text-white' : 'bg-white text-black'} ${className ?? ''}`}>
-      <IconBrandGoogle /> Register With Email
+      <IconBrandGoogle /> Login With Email
     </Button>
   )
 }

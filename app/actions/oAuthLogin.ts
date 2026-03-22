@@ -3,6 +3,6 @@
   import { redirect } from "next/navigation"
   
   export const handleGoogleLogin = async () => {
-    await signIn("google", { redirectTo: "/" })
+    await signIn("google", { redirectTo: "/dashboard" })
     redirect("/dashboard")
     }
