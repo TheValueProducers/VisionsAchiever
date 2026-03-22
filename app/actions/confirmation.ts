@@ -21,10 +21,10 @@ export async function sendVerification() {
       success: true,
       message: "Verification email sent",
     };
-  } catch {
+  } catch (error) {
     return {
       success: false,
-      message: "Failed to send verification email",
+      message: error instanceof Error ? error.message : "Failed to send verification email",
     };
   }
 }

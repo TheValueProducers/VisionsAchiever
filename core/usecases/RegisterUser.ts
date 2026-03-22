@@ -2,6 +2,7 @@ import { User } from "../entities/User";
 import { UserRepository, CreateUserDTO } from "../ports/UserRepository";
 import { EmailSender } from "../ports/EmailSender";
 import { PasswordHasher } from "../ports/PasswordHasher";
+import { buildVerificationLink } from "@/lib/emailConfig";
 
 export class RegisterUser {
   constructor(
@@ -30,7 +31,7 @@ export class RegisterUser {
       language: "english",
     });
 
-    const verifyLink = `https://www.visionachiever.org/register/verify?token=${token}`;
+    const verifyLink = buildVerificationLink(token);
 
     await this.emailSender.sendVerification(verifyLink, data.email);
 

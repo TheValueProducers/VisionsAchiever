@@ -1,5 +1,6 @@
 import { UserRepository } from "../ports/UserRepository";
 import { EmailSender } from "../ports/EmailSender";
+import { buildVerificationLink } from "@/lib/emailConfig";
 
 export class SendConfirmation {
 	constructor(
@@ -28,7 +29,7 @@ export class SendConfirmation {
 
 		await this.users.save(user);
 
-		const verifyLink = `https://www.visionachiever.org/register/verify?token=${token}`;
+		const verifyLink = buildVerificationLink(token);
 		await this.emailSender.sendVerification(verifyLink, email);
 
 		return { success: true };

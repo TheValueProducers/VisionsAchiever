@@ -1,13 +1,14 @@
 import { Resend } from "resend";
 import EmailTemplate from "@/components/auth/EmailTemplate";
 import { EmailSender } from "@/core/ports/EmailSender";
+import { getVerificationFromAddress } from "@/lib/emailConfig";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export class ResendEmailSender implements EmailSender {
   async sendVerification(link: string, email: string) {
     const { data, error } = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: getVerificationFromAddress(),
       to: [email],
       subject: "Verify User",
       react: EmailTemplate({ link }),

@@ -26,7 +26,7 @@ export default async function handleSubmit(formData: FormData){
         const cookieStore = await cookies();
         cookieStore.set("verify_email", email, {
           httpOnly: true,
-          secure: true,
+          secure: process.env.NODE_ENV === "production",
           maxAge: 60 * 60,
           path: "/",
         });

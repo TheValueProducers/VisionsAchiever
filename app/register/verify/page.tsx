@@ -17,7 +17,7 @@ export default async function Verify({
   }
   
   const usecase = makeVerifyEmail();
-  (await usecase).execute(token)
+  await (await usecase).execute(token)
 
   redirect("/login");
 }
